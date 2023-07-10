@@ -11,3 +11,12 @@ export const getAll = async () => {
     const productCategory = await prisma.product_Category.findMany({})
     return productCategory;
 }
+
+export const getById = async (id) => {
+    const productCategory = await prisma.product_Category.findUnique({
+        where: {
+            id
+        },
+    })
+    return productCategory;
+}

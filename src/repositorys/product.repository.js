@@ -11,3 +11,12 @@ export const getAll = async () => {
     const products = await prisma.product.findMany({})
     return products;
 }
+
+export const getProductByBarCode = async (barcode) => {
+    const product = await prisma.product.findFirst({
+        where: {
+            barcode
+        }
+    })
+    return product;
+}
