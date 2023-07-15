@@ -20,3 +20,22 @@ export const getById = async (id) => {
     })
     return productCategory;
 }
+
+export const updateProductCategory = async (id, data) => {
+    const productCategory = await prisma.product_Category.update({
+        where: {
+            id
+        },
+        data,  
+    })
+    return productCategory;
+}
+
+export const deleteProductCategory = async (id) => {
+    await prisma.product_Category.delete({
+        where: {
+            id
+        }
+    });
+    return;
+}
